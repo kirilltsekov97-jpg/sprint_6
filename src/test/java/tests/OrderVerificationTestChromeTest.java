@@ -93,16 +93,12 @@ public class OrderVerificationTestChromeTest {
         By successHeader = By.xpath("//*[contains(@class,'Order_ModalHeader') and contains(normalize-space(.),'Заказ оформлен')]");
 
 
-        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
 
-        try {
 
-            shortWait.until(ExpectedConditions.visibilityOfElementLocated(placeAnOrder));
-            shortWait.until(ExpectedConditions.elementToBeClickable(confirmOrder)).click();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(successHeader));
-        } catch (TimeoutException e) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(placeAnOrder));
+        wait.until(ExpectedConditions.elementToBeClickable(confirmOrder)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(successHeader));
 
-        }
     }
 
     @AfterEach
